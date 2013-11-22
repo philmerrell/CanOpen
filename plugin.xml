@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.philmerrell.cordova.canopen" version="0.1">
+        <name>CanOpen</name>
+        <author>Phil Merrell</author>
+        <description>CanOpen is particluarly useful for checking if native apps are installed on a user's device in iOS. By passing an app scheme (e.g., 'fb://', 'gplus://', 'instagram://', etc...), CanOpen returns true if it detects the user has the corresponding app installed.  By returning false, CanOpen allows the developer the ability to implement a fallback URL–for instance, the app's location in the App Store, or a mobile web version of the corresponding app.</description>
+        <license>Apache 2.0</license>
+        <keywords>cordova, phonegap, canopen, canopenurl, url, scheme</keywords>
+        <engines>
+            <engine name="cordova" version=">=3.0.0" />
+        </engines>
+        <js-module src="www/canopen.js" name="canopen">
+            <clobbers target="window.CanOpen" />
+        </js-module>
+        <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="CanOpen">
+                    <param name="ios-package" value="CanOpen"/>
+                </feature>
+            </config-file>
+            <header-file src="src/ios/CanOpen.h" />
+            <source-file src="src/ios/CanOpen.m" />
+        </platform>
+    </plugin>
