@@ -8,3 +8,53 @@ Installation:
 
 Usage:
 -------
+Alert a user that app is not installed.
+
+```javascript
+CanOpen('fb://', function(isInstalled) {
+    
+    if(isInstalled) {
+        
+        document.location = 'fb://';
+    
+    } else {
+    
+        alert('Facebook is not installed');
+        
+    }
+});
+```
+
+Or fallback to mobile web.
+
+```javascript
+CanOpen('fb://', function(isInstalled) {
+    
+    if(isInstalled) {
+        
+        document.location = 'fb://';
+    
+    } else {
+    
+        document.location = 'http://m.facebook.com';
+        
+    }
+});
+```
+
+Or fallback to app in the App Store
+
+```javascript
+CanOpen('fb://', function(isInstalled) {
+    
+    if(isInstalled) {
+        
+        document.location = 'fb://';
+    
+    } else {
+    
+        document.location = 'https://itunes.apple.com/us/app/facebook/id284882215';
+        
+    }
+});
+```
