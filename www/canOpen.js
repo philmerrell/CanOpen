@@ -1,17 +1,19 @@
-var exec = require("cordova/exec");
+(function(window) {
+	var cordovaRef = window.Phonegap || window.Cordova || window.cordova;
 
-var CanOpen = function () {
-	this.name = "CanOpen";
-};
+	window.CanOpen = function(app, callback) {
+		cordovaRef.exec(
+			// Success callback
+			callback,
+			// Failure callback
+			function(err) { console.log('Missing app scheme.');},
+			// Native Class Name 
+			"CanOpen",
+			// Name of method in native class.
+			"appCanOpen",
+			// array of args to pass to method.
+			[app]
+		);
+	};
 
-CanOpen.prototype.open = function (url, callback) {
-	if(!url) {
-		return;
-	}
-
-	exec(callback, function errorHandler(err) {
-			console.log(err);
-		}, "CanOpen", "appCanOpen", [url]);
-};
-
-module.exports = new CanOpen();
+})(window);
