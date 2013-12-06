@@ -2,13 +2,34 @@ CanOpen
 ======
 This plugin is useful for checking if native apps are installed on a user's iOS device. By passing an app scheme (e.g., 'fb://', 'gplus://', 'instagram://', etc...), CanOpen returns true if it detects the user has the corresponding native app installed.  By returning false, CanOpen allows the developer the ability to implement a fallback URL–for instance, the app's location in the App Store, or a mobile web version of the corresponding app.
 
-Installation:
-----------
+## Manual Installation for iOS
 
+Copy the following files to your project's Plugins folder:
+
+**CanOpen.h**
+**CanOpen.m**
+  
+
+Add a reference for this plugin to **config.xml** in your iOS phonegap project:
+
+```
+  <feature name="CanOpen">
+      <param name="ios-package" value="CanOpen" />
+  </feature>
+```
+
+Add the **canOpen.js** script to your www folder and reference it in your main index.html file.
+
+    <script type="text/javascript" charset="utf-8" src="canOpen.js"></script>
+
+## Automatic Installation
+
+Working on registering CanOpen with plugman.  Coming soon.
 
 Usage:
 -------
-Alert a user that app is not installed.
+
+**Alert a user that app is not installed.**
 
 ```javascript
 CanOpen('fb://', function(isInstalled) {
@@ -25,7 +46,7 @@ CanOpen('fb://', function(isInstalled) {
 });
 ```
 
-Or fallback to mobile web.
+**Or fallback to mobile web.**
 
 ```javascript
 CanOpen('fb://', function(isInstalled) {
@@ -42,7 +63,7 @@ CanOpen('fb://', function(isInstalled) {
 });
 ```
 
-Or fallback to app in the App Store
+**Or fallback to app in the App Store.**
 
 ```javascript
 CanOpen('fb://', function(isInstalled) {
