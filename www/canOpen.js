@@ -1,5 +1,5 @@
 module.exports = function CanOpen(app, callback) {
-	cordovaRef.exec(
+	cordova.exec(
 		// Success callback
 		callback,
 		// Failure callback
